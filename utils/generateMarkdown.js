@@ -22,10 +22,10 @@ const renderLicenseSection(license) => {
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (data) => 
-  return `#Project Title
+  return `#${data.projectName}
 
   ## Description
-  Description goes here
+  ${data.projectDescription}
   
   License badge goes here
   
@@ -38,16 +38,21 @@ const generateMarkdown = (data) =>
   * [Tests](#tests)
   
   ## Installation
+  ${data.installation}
   
   ## Usage
+  ${data.usage}
   
   ## Credits
+  ${data.credits}
   
   ## License
   
   ## Contributing
+  ${data.contribution}
   
-  ## Tests  
+  ## Tests 
+  ${data.test} 
 `;
 
 
