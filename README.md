@@ -19,7 +19,7 @@ This project generates a markdown readme file based upon user input.  The applic
 From GitHub, fork the repo all upload all contents to the deployed webserver (or deploy using GitHub Pages).  The server must have Node.js installed.  Once forked, run ```npm i``` from the root directory to install required dependencies.
   
 ## Usage
-From the application's root directory, run ```node index.js```.  Follow the user prompts to provide content for the readme file.
+From the application's root directory, run ```node index.js```.  Follow the user prompts to provide content for the readme file.  Upon completion, the application will generate a new file, ```SAMPLE_README.md```, in the root directory.
 
 ![application screenshot](./assets/images/app_screenshot.PNG)
 
