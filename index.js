@@ -22,7 +22,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "Please enter usage information",
+    message: "Please enter usage information:",
     name: "usage",
   },
   {
@@ -67,12 +67,12 @@ const questions = [
   },
   {
       type: "input",
-      message: "Please enter your full name for the license",
+      message: "Please enter your full name for the license:",
       name: "fullName",
   },
   {
       type: "input",
-      message: "Please enter the year the application was created",
+      message: "Please enter the year the application was created:",
       name: "year",
   }
 ];

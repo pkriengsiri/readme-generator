@@ -986,42 +986,42 @@ limitations under the License.
 // Creates markdown text as a template literal string
 const generateMarkdown = (data) =>
   `
-  #${data.projectName}
+#${data.projectName}
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
-  ## Description
-  ${data.projectDescription}
+## Description
+${data.projectDescription}
   
-  ## Table of Contents
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Credits](#credits)
-  ${renderLicenseLink(data.license)}
-  * [Contributing](#contributing)
-  * [Tests](#tests)
-  * [Questions](#questions)
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+${renderLicenseLink(data.license)}
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
   
-  ## Installation
-  ${data.installation}
+## Installation
+${data.installation}
   
-  ## Usage
-  ${data.usage}
+## Usage
+${data.usage}
   
-  ## Credits
-  ${data.credits}
+## Credits
+${data.credits}
   
-  ${renderLicenseSection(data)}
+${renderLicenseSection(data)}
 
-  ## Contributing
-  ${data.contribution}
+## Contributing
+${data.contribution}
   
-  ## Tests 
-  ${data.test} 
+## Tests 
+${data.test} 
 
-  ## Questions
-  Contact me via [email](mailto:${data.email}).
-  View my GitHub [profile](https://github.com/${data.userName}).
+## Questions
+Contact me via [email](mailto:${data.email}).
+View my GitHub [profile](https://github.com/${data.userName}).
 `;
 
 // FUNCTION EXPORT
