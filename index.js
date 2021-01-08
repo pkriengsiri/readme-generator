@@ -1,6 +1,7 @@
 //IMPORT PACKAGES
 const fs = require("fs");
 const inquirer = require("inquirer");
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // JS VARIABLES
 const questions = [
@@ -26,7 +27,7 @@ const questions = [
   },
   {
     type: "list",
-    options: ["Please contact the author to be added as a collaborator to this project and to discuss contribution guidelines.","No contributions are being accepted at this time."],
+    choices: ["Please contact the author to be added as a collaborator to this project and to discuss contribution guidelines.","No contributions are being accepted at this time."],
     message: "Please select an option for contribution guidelines:",
     name: "contribution",
   },
@@ -37,7 +38,7 @@ const questions = [
   },
   {
     type: "list",
-    options: ["GNU AGPLv3","GNU GPLv3","GNU LGPLv3","Mozilla Public License 2.0","Apache License 2.0","MIT License","Boost Software License 1.0","The Unlicense"],
+    choices: ["GNU AGPLv3","GNU GPLv3","GNU LGPLv3","Mozilla Public License 2.0","Apache License 2.0","MIT License","Boost Software License 1.0","The Unlicense"],
     message: "Please select a license from the list:",
     name: "license",
   },
@@ -61,7 +62,9 @@ const promptUser = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = (fileName, data) => {
+
+}
 
 // TODO: Create a function to initialize app
 const init = () => {
