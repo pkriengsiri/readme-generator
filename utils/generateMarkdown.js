@@ -986,7 +986,7 @@ limitations under the License.
 // Creates markdown text as a template literal string
 const generateMarkdown = (data) =>
   `
-#${data.projectName}
+# ${data.projectName}
 
 ${renderLicenseBadge(data.license)}
 
