@@ -3,6 +3,8 @@
 ## Description
 Description goes here
 
+License badge goes here
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)

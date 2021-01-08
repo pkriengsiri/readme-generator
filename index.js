@@ -25,7 +25,7 @@ const questions = [
     name: "usage",
   },
   {
-    type: "checkbox",
+    type: "list",
     options: ["Please contact the author to be added as a collaborator to this project and to discuss contribution guidelines.","No contributions are being accepted at this time."],
     message: "Please select an option for contribution guidelines:",
     name: "contribution",
@@ -36,8 +36,8 @@ const questions = [
     name: "test",
   },
   {
-    type: "checkbox",
-    options: [],
+    type: "list",
+    options: ["GNU AGPLv3","GNU GPLv3","GNU LGPLv3","Mozilla Public License 2.0","Apache License 2.0","MIT License","Boost Software License 1.0","The Unlicense"],
     message: "Please select a license from the list:",
     name: "license",
   },
