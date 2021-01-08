@@ -1,5 +1,5 @@
 
-#Readme Generator
+# Readme Generator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,7 +16,7 @@ This project generates a markdown readme file based upon user input.  The applic
 * [Questions](#questions)
   
 ## Installation
-From GitHub, fork the repo all upload all contents to the deployed webserver (or deploy using GitHub Pages).  The server must have Node.js installed.  Once forked, nun ```npm i``` to install required dependencies.
+From GitHub, fork the repo all upload all contents to the deployed webserver (or deploy using GitHub Pages).  The server must have Node.js installed.  Once forked, run ```npm i``` from the root directory to install required dependencies.
   
 ## Usage
 From the application's root directory, run ```node index.js```.  Follow the user prompts to provide content for the readme file.
@@ -35,7 +35,7 @@ This application is covered under MIT License
 
 ```
 
-Copyright (c) 2021 Pete Kriengsiri
+Copyright (c) 2021  Pete Kriengsiri
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,7 +63,7 @@ SOFTWARE.
 No contributions are being accepted at this time.
   
 ## Tests 
-There are currently no tests for this application. 
+There are currently no tests for this application.  
 
 ## Questions
 Contact me via [email](mailto:pkriengsiri@gmail.com).
