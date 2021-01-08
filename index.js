@@ -47,14 +47,9 @@ const questions = [
   {
     type: "list",
     choices: [
-      "GNU AGPLv3",
       "GNU GPLv3",
-      "GNU LGPLv3",
-      "Mozilla Public License 2.0",
       "Apache License 2.0",
       "MIT License",
-      "Boost Software License 1.0",
-      "The Unlicense",
     ],
     message: "Please select a license from the list:",
     name: "license",
@@ -69,17 +64,32 @@ const questions = [
     message: "Please enter your email address:",
     name: "email",
   },
+  {
+      type: "input",
+      message: "Please enter your full name for the license",
+      name: "fullName",
+  },
+  {
+      type: "input",
+      message: "Please enter the year the application was created",
+      name: "year",
+  }
 ];
 
 // FUNCTION DEFINITIONS
 const promptUser = () => {
   inquirer.prompt([...questions]).then((response) => {
-    console.log(response);
+    const markdown = generateMarkdown(response);
+    writeToFile("SAMPLEREADME.md",generateMarkdown(response));
   });
 };
 
 // TODO: Create a function to write README file
-const writeToFile = (fileName, data) => {};
+const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName,data, (err) => {
+        err ? console.error(err) : console.log('Success!')
+    });
+};
 
 // TODO: Create a function to initialize app
 const init = () => {
