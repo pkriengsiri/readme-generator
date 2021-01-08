@@ -36,6 +36,7 @@ const generateMarkdown = (data) =>
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
+  * [Questions](#questions)
   
   ## Installation
   ${data.installation}
@@ -53,6 +54,10 @@ const generateMarkdown = (data) =>
   
   ## Tests 
   ${data.test} 
+
+  ## Questions
+  Contact me via [email](mailto:${data.email}).
+  View my GitHub [profile](https://github.com/${data.username}).
 `;
 
 
