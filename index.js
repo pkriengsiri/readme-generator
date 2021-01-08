@@ -81,7 +81,7 @@ const questions = [
 // Get prompts from the user calls the  
 const promptUser = () => {
   inquirer.prompt([...questions]).then((response) => {
-    writeToFile("SAMPLEREADME.md",generateMarkdown(response));
+    writeToFile("SAMPLE_README.md",generateMarkdown(response));
   });
 };
 
