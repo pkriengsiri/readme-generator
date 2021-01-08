@@ -50,6 +50,7 @@ const questions = [
       "GNU GPLv3",
       "Apache License 2.0",
       "MIT License",
+      "No license"
     ],
     message: "Please select a license from the list:",
     name: "license",
@@ -77,24 +78,24 @@ const questions = [
 ];
 
 // FUNCTION DEFINITIONS
+// Get prompts from the user calls the  
 const promptUser = () => {
   inquirer.prompt([...questions]).then((response) => {
-    const markdown = generateMarkdown(response);
     writeToFile("SAMPLEREADME.md",generateMarkdown(response));
   });
 };
 
-// TODO: Create a function to write README file
+// Writes the readme file
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName,data, (err) => {
         err ? console.error(err) : console.log('Success!')
     });
 };
 
-// TODO: Create a function to initialize app
+// Initializes the file
 const init = () => {
   promptUser();
 };
 
-// Function call to initialize app
+// FUNCTION CALLS
 init();

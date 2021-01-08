@@ -3,14 +3,17 @@
 const renderLicenseBadge = (license) => {
   switch (license) {
     case "MIT License":
-      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
+      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
       break;
     case "GNU GPLv3":
-      return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]";
+      return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
       break;
     case "Apache License 2.0":
-      return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]";
-      return;
+      return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+      break;
+    case "No license":
+      return "";
+      break;
     default:
       return "";
   }
@@ -19,26 +22,31 @@ const renderLicenseBadge = (license) => {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 const renderLicenseLink = (license) => {
-  switch (license) {
-    case "MIT License":
-      return "(https://opensource.org/licenses/MIT)";
-      break;
-    case "GNU GPLv3":
-      return "(https://www.gnu.org/licenses/gpl-3.0)";
-      break;
-    case "Apache License 2.0":
-      return "(https://opensource.org/licenses/Apache-2.0)";
-    default:
-      return "";
+  if (license === "No license") {
+    return "";
+  } else {
+    return `* [License](#license)`;
   }
 };
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-const renderLicenseSection = (license) => {
-  switch (license) {
+const renderLicenseSection = (data) => {
+  switch (data.license) {
     case "MIT License":
       return `
+## License
+This application is covered under ${data.license}
+
+<details>
+  <summary>
+    License Text
+  </summary> 
+
+\`\`\`
+
+Copyright (c) ${data.year} ${data.fullName}
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -55,10 +63,26 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.`;
+SOFTWARE.
+
+\`\`\`
+</details>
+`;
       break;
     case "GNU GPLv3":
       return `
+## License
+This application is covered under ${data.license}
+
+<details>
+  <summary>
+    License Text
+  </summary> 
+
+\`\`\`
+      
+Copyright (c) ${data.year} ${data.fullName}
+
                      GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -731,10 +755,23 @@ into proprietary programs.  If your program is a subroutine library, you
 may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
-<https://www.gnu.org/licenses/why-not-lgpl.html>.`;
+<https://www.gnu.org/licenses/why-not-lgpl.html>.
+\`\`\`
+</details>
+`;
       break;
     case "Apache License 2.0":
       return `
+## License
+This application is covered under ${data.license}
+
+<details>
+  <summary>
+    License Text
+  </summary> 
+
+\`\`\`
+
           Apache License
       Version 2.0, January 2004
    http://www.apache.org/licenses/
@@ -933,7 +970,15 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.`;
+limitations under the License.
+
+\`\`\`
+</details>
+`;
+      break;
+    case "No License":
+      return "";
+      break;
     default:
       return "";
   }
@@ -941,18 +986,19 @@ limitations under the License.`;
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (data) =>
-  `#${data.projectName}
+  `
+  #${data.projectName}
+
+  ${renderLicenseBadge(data.license)}
 
   ## Description
   ${data.projectDescription}
-  
-  ${renderLicenseBadge(data.license)}${renderLicenseLink(data.license)}
   
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [Credits](#credits)
-  * [License](#license)
+  ${renderLicenseLink(data.license)}
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
@@ -966,14 +1012,7 @@ const generateMarkdown = (data) =>
   ## Credits
   ${data.credits}
   
-  ## License
-  ${data.license}
-
-  Copyright (c) ${data.year} ${data.fullName}
-
-  \`\`\`
-  ${renderLicenseSection(data.license)}
-  \`\`\`
+  ${renderLicenseSection(data)}
 
   ## Contributing
   ${data.contribution}
