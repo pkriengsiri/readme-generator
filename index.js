@@ -1,13 +1,72 @@
-// TODO: Include packages needed for this application
+//IMPORT PACKAGES
+const fs = require("fs");
+const inquirer = require("inquirer");
 
-// TODO: Create an array of questions for user input
-const questions = [];
+// JS VARIABLES
+const questions = [
+  {
+    type: "input",
+    message: "Please enter your project name:",
+    name: "projectName",
+  },
+  {
+    type: "input",
+    message: "Please enter a project description in a few short sentences:",
+    name: "projectDescription",
+  },
+  {
+    type: "input",
+    message: "Please enter installation instructions:",
+    name: "installation",
+  },
+  {
+    type: "input",
+    message: "Please enter usage information",
+    name: "usage",
+  },
+  {
+    type: "checkbox",
+    options: ["Please contact the author to be added as a collaborator to this project and to discuss contribution guidelines.","No contributions are being accepted at this time."],
+    message: "Please select an option for contribution guidelines:",
+    name: "contribution",
+  },
+  {
+    type: "input",
+    message: "Please enter test information:",
+    name: "test",
+  },
+  {
+    type: "checkbox",
+    options: [],
+    message: "Please select a license from the list:",
+    name: "license",
+  },
+  {
+    type: "input",
+    message: "Please enter your GitHub user name:",
+    name: "userName",
+  },
+  {
+    type: "input",
+    message: "Please enter your email address:",
+    name: "email",
+  },
+];
+
+// FUNCTION DEFINITIONS
+const promptUser = () => {
+  inquirer.prompt([...questions]).then((response) => {
+    console.log(response);
+  });
+};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+  promptUser();
+};
 
 // Function call to initialize app
 init();
